@@ -1,0 +1,61 @@
+.card-header {
+  font-size: 18px;
+}
+
+.time {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.badge {
+  font-size: 14px;
+}
+
+.text-muted {
+  font-size: 12px;
+}
+
+.card {
+  background-color: #111; /* Dark background similar to the screenshot */
+  border: none;
+  border-radius: 1px;
+}
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.badge {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #b080d1;
+}
+
+i.bi-chevron-right {
+  font-size: 20px;
+  color: white;
+}
+
+/* Bottom Nav */
+.space {
+  margin-bottom: 78px;
+}
+.nav-link {
+  text-align: center;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+.nav-link.active {
+  color: #f0e68c;
+}
+.nav-icon {
+  font-size: 1.5rem;
+}
+.navbar-custom {
+  background-color: #111;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #444;
+}
+

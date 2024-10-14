@@ -1,0 +1,277 @@
+<div>
+  <div class="basic-1">
+
+    <div id="map" style="height: 300px; margin-bottom: 30px;"></div>
+
+    <div class="container search">
+      <div class="search-bar">
+        <div class="container">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="form-control"
+            [(ngModel)]="searchTerm"
+            (input)="onSearch()"
+            aria-label="Search"
+          />
+        </div>
+          <!-- <i class="bi bi-search search-icon"></i>
+          <input type="text" class="form-control" placeholder="I want to go to...">
+          <i class="bi bi-arrow-right arrow-icon"></i> -->
+      </div>
+  </div>
+  </div><br>
+
+  <!-- Current Bus Stop -->
+  <div class="bus-stop">
+    <div class="stop-info">
+      <div class="container">
+        Current Bus Stop
+      </div>
+    </div>
+    <div class="bus-stop-card">
+      <div class="container">
+        <div class="stop-name location-button"><input class="form-check-input" type="radio" name="options" id="option3">Home Street</div>
+      <div class="bus-info">
+          <div class="bus-details">
+              <i class="fas fa-bus"></i>
+              <span class="font-weight-bold location-button"><input class="form-check-input" type="radio" name="options" id="option3">Festac Town, Lagos Festac 23 Road</span>
+          </div>
+      </div>
+      <div class="">
+        <span class="bus-number">37</span>
+        <span class="bus-wait-time">-11</span>
+        <span><img src="../assets/images/walk.png" alt="">>6</span>
+        <img class="text-right" src="../assets/images/bell.png" alt="">
+      </div>
+      </div>
+    </div>
+
+
+
+  <!--  -->
+
+
+
+
+
+  </div>
+
+  <!-- Report and Contact -->
+  <div>
+    <div class="button-container">
+      <button class="btn btn-custom btn-report col-4">
+          <img class="ticket" src="../assets/images/tickets.png" alt="">
+          Report
+      </button>
+      <button class="btn btn-custom btn-contact col-lg-7">
+        <img class="house" src="../assets/images/home.png" alt="">
+          Contact Us
+          <span class="arrow-icon">&gt;</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Nearby Stops -->
+  <div class="near">
+    <div class="container">
+      Nearby Stops
+    </div>
+  </div>
+  <div class="nearby">
+    <!-- First Stop Card -->
+      <div class="card-stop">
+        <div class="container">
+            <div class="stop-info">
+                <div>
+                    <div class="stop-icon">
+                        <i class="fas fa-arrow-circle-left"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-weight-bold">1st Avenue</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+              <img src="../assets/images/heart.png" alt="">
+              <img src="../assets/images/greater-than.png" alt="">
+            </div>
+            <p class="distance"><small>30 min walk . towards</small><br><span class="distance-location"> Alakija</span></p>
+            <div class="d-flex align-items-center">
+                <span class="bus-line">29</span>
+                <p>Elm Row</p>
+                <i class="fas fa-heart ml-auto heart-icon"></i>
+                <div class="stop-time">
+                  18 min
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Second Stop Card -->
+      <div class="card-stop">
+        <div class="container">
+              <div class="stop-info">
+                  <div>
+                      <div class="stop-icon">
+                          <i class="fas fa-arrow-circle-left"></i>
+                      </div>
+                      <div>
+                          <h5 class="font-weight-bold">2nd Avenue</h5>
+                      </div>
+                  </div>
+              </div>
+              <div class="flex">
+                <img src="../assets/images/heart.png" alt="">
+                <img src="../assets/images/greater-than.png" alt="">
+              </div>
+              <p class="distance"><small>3 min walk . towards </small><br><span class="distance-location"> AA close</span></p>
+              <div class="d-flex align-items-center">
+                <span class="bus-line n3">N3</span>
+                <p>24 Road</p>
+                <i class="fas fa-heart ml-auto heart-icon"></i>
+                <div class="">
+                      16 min
+                  </div>
+              </div>
+              <div class="d-flex align-items-center">
+                  <span class="bus-line yellow">3</span>
+                  <p>1st Avenue</p>
+                  <i class="fas fa-heart ml-auto heart-icon"></i>
+                  <div class="stop-time">
+                    40 min
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <!-- Third Stop Card -->
+      <div class="card-stop">
+        <div class="container">
+            <div class="stop-info">
+                <div>
+                    <div class="stop-icon">
+                        <i class="fas fa-arrow-circle-left"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-weight-bold">3rd Avenue</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+              <img src="../assets/images/heart.png" alt="">
+              <img src="../assets/images/greater-than.png" alt="">
+            </div>
+            <p class="distance"><small>1 min walk . towards</small><br><span class="distance-location">2nd Avenue</span></p>
+            <div class="d-flex align-items-center">
+                <span class="bus-line">29</span>
+                <p>23 Road</p>
+                <i class="fas fa-heart ml-auto heart-icon"></i>
+                <div class="stop-time">
+                  18 min
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Fourt Stop Card -->
+      <div class="card-stop">
+        <div class="container">
+              <div class="stop-info">
+                  <div>
+                      <div class="stop-icon">
+                          <i class="fas fa-arrow-circle-left"></i>
+                      </div>
+                      <div>
+                          <h5 class="font-weight-bold">6th Avenue</h5>
+                      </div>
+                  </div>
+              </div>
+              <div class="flex">
+                <img src="../assets/images/heart.png" alt="">
+                <img src="../assets/images/greater-than.png" alt="">
+              </div>
+              <p class="distance"><small>3 min walk . towards </small><br><span class="distance-location"> Alakija</span></p>
+              <div class="d-flex align-items-center">
+                <span class="bus-line n3">N3</span>
+                <p>Festac</p>
+                <i class="fas fa-heart ml-auto heart-icon"></i>
+                <div class="">
+                      16 min
+                  </div>
+              </div>
+              <div class="d-flex align-items-center">
+                  <span class="bus-line yellow">3</span>
+                  <p>2nd Avenue</p>
+                  <i class="fas fa-heart ml-auto heart-icon"></i>
+                  <div class="stop-time">
+                    40 min
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <!-- fifth Stop Card -->
+      <div class="card-stop space">
+        <div class="container">
+            <div class="stop-info">
+                <div>
+                    <div class="stop-icon">
+                        <i class="fas fa-arrow-circle-left"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-weight-bold">7th Avenue</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+              <img src="../assets/images/heart.png" alt="">
+              <img src="../assets/images/greater-than.png" alt="">
+            </div>
+            <p class="distance"><small>1 min walk . towards</small><br><span class="distance-location"> Alakija</span></p>
+            <div class="d-flex align-items-center">
+                <span class="bus-line">29</span>
+                <p>Total Fuel Station</p>
+                <i class="fas fa-heart ml-auto heart-icon"></i>
+                <div class="stop-time">
+                  18 min
+              </div>
+            </div>
+        </div>
+      </div>
+
+  </div>
+
+  <div>
+      <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand navbar-custom">
+      <ul class="navbar-nav mx-auto w-100 justify-content-between">
+          <li class="nav-item">
+              <a class="nav-link active" href="#">
+                  <img src="../assets/images/home-nav.png" alt=""><br>
+                  Home
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="search">
+                <img src="../assets/images/heart.png" alt=""><br>
+                  Search
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">
+                <img src="../assets/images/hide.png" alt=""><br>
+                  Buses
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">
+                <img src="../assets/images/share.png" alt=""><br>
+                  Routes
+              </a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+
+</div>

@@ -1,0 +1,278 @@
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  width: 88vw;
+  position: absolute;
+  margin-top: -30px;
+}
+
+.search
+{
+  align-items: center;
+  justify-content: center;
+
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex-grow: 1;
+}
+
+.search-bar .search-icon {
+  color: #888;
+}
+
+.search-bar .arrow-icon {
+  color: #888;
+}
+
+/* Current Bus Stop */
+.bus-stop{
+  background-color: #2b2b2b ;
+  color: #ccc;
+}
+
+.bus-stop-card {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+  width: 100%;
+}
+.bus-stop-card .stop-info {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.bus-stop-card .bus-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+.bus-stop-card .bus-info div {
+  display: flex;
+  align-items: center;
+}
+.bus-stop-card .bus-info .bus-number {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.bus-number {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 0px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.bus-wait-time {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 0px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.form-check-input:checked {
+  background-color: rgb(65, 64, 64); /* Set background color to white when clicked */
+  border-color: black; /* Change border color when clicked */
+}
+
+.form-check-input {
+  background-color: rgb(89, 89, 89); /* Set background color to white when clicked */
+  border-color: black; /* Change border color when clicked */
+
+}
+
+.bus-stop-card .bus-info .bus-wait-time {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.bus-stop-card .alert-icon {
+  color: gold;
+  font-size: 1.5rem;
+}
+
+.text-right
+{
+  float: right;
+}
+
+.location-button {
+  margin-left: 20px;
+}
+
+/*  */
+.report-and-contact {
+  background-color: #330000;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: green;
+}
+.btn-custom {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 2px;
+  text-transform: capitalize;
+}
+.btn-report {
+  background-color: #d1b06b;
+  color: white;
+  margin-right: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.btn-contact {
+  background-color: #b3b3b3;
+  color: white;
+  font-size: 14px;
+}
+.btn-report i, .btn-contact i {
+  margin-right: 10px;
+}
+.btn-contact .arrow-icon {
+  margin-left: auto;
+  padding-left: 10px;
+}
+
+.ticket{
+  margin-right: 5px;
+}
+
+.house {
+  margin-right: 5px;
+}
+
+
+/* Nearby Stops */
+
+.card-stop {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 1px;
+  margin-bottom: 15px;
+}
+.card-stop .stop-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-stop .stop-info div {
+  display: flex;
+  align-items: center;
+}
+.card-stop .stop-icon {
+  background-color: #dc3545;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+.bus-line {
+  background-color: #b080d1;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 1px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.bus-line.n3 {
+  background-color: #002366;
+}
+.bus-line.yellow {
+  background-color: #ffc107;
+}
+.stop-time {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.heart-icon {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.distance
+ {
+  margin-left: 60px;
+ }
+
+ .distance-location {
+  font-size: 14px;
+  margin-top: -5px;
+ }
+
+ .love {
+  float: right;
+ }
+
+.flex {
+  justify-content: right;
+  float: right;
+  margin-right: 10px;
+}
+
+.near {
+  background-color: #2b2b2b;
+  color: rgb(176, 176, 176);
+}
+.nearby
+{
+  background-color: rgb(75, 198, 75);
+  margin-bottom: 50px;
+}
+
+/* Bottom Nav */
+.space {
+  margin-bottom: 78px;
+}
+.nav-link {
+  text-align: center;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+.nav-link.active {
+  color: #f0e68c;
+}
+.nav-icon {
+  font-size: 1.5rem;
+}
+.navbar-custom {
+  background-color: #111;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #444;
+}
