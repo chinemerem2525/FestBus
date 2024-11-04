@@ -1,0 +1,83 @@
+<!-- <div id="map" class="map" style="height: 300px; margin-bottom: 30px;"></div> -->
+
+<div class="routeMap">
+  <app-route-map></app-route-map>
+</div>
+
+
+<div class="body text-light">
+  <div class="d-flex justify-content-between text-muted">
+    <a href="#" class="text-muted"><span class="text-muted-earlier">Earlier</span></a>
+    <span class="duration">{{ journeyDuration }}</span>
+    <a href="#" class="text-muted"><span class="text-muted-later">Later</span></a>
+</div>
+
+
+<div class="container">
+  <div class="mt-3">
+    <div class="event-time">{{ arrivalTime }}</div>
+      <div class="timeline-event rhs mt-2">
+          <div class="event-content">
+              <div class="event-icon">
+                <img src="../../../assets/images/person.png" alt="">
+                  <i class="bi bi-walking"></i> <!-- Walking icon -->
+              </div>
+              <div>{{ from }}</div>
+              <div class="event-detail">2 min</div>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="me-2">
+              <span class="badge">29</span>
+            </div>
+
+
+            <div class="ms-auto">
+              <span class="event-action">Arrives in <br> <span class="arrival">{{ journeyDuration }}</span></span>
+            </div>
+          </div>
+      </div>
+
+        <div class="">
+          <div class="event-time">
+            <!-- <div class="event-time">00:28</div>
+            <div class="event-time mt-4">00:28</div> -->
+          </div>
+          <div class="timeline-event rhs-float" style="width: 100%;" *ngFor="let instruction of routeInstructions">
+            <div class="event-content-breakdown">
+                <div>
+            {{ instruction }}
+                </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div class="flex mb-5">
+            <div class="event-time" style="border: 1px solid white; border-radius: 5px; width: 60px; text-align: center;">
+
+              <div class="mt-3">
+                {{ dropOffTime }}
+              </div>
+            </div>
+            <div class="event-content-breakdown rhs-float" style="width: 100%; border-radius: 4px;">
+              <div>
+                <span class="arrival">{{ to }}</span>
+              </div>
+          </div>
+
+        </div>
+
+
+
+
+  </div>
+
+
+</div>
+<div class="division">
+  <app-footer></app-footer>
+</div>
+

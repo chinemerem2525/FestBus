@@ -1,0 +1,23 @@
+
+/* Bottom Nav */
+.space {
+  margin-bottom: 78px;
+}
+.nav-link {
+  text-align: center;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+.nav-link.active {
+  color: #f0e68c;
+}
+.nav-icon {
+  font-size: 1.5rem;
+}
+.navbar-custom {
+  background-color: #111;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #444;
+}

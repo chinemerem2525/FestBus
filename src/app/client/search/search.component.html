@@ -1,47 +1,111 @@
 
 <div class="card">
-  <!-- <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
-    <span>Search results</span>
-    <span>Now</span>
-  </div> -->
 
-    <div class="card p-4" style="background-color: #28a745;">
+    <div class="card p-4" style="background-color: #083d08;">
       <h5 class="text-white mb-3">Search for Routes</h5>
       <form>
         <div class="row">
           <!-- From Input -->
           <div class="col-md-6 mb-3">
-            <!-- <label for="fromLocation" class="form-label text-white">From</label> -->
-            <input type="text" class="form-control" id="fromLocation" value="{{ query }}" placeholder="From: Enter Starting Location">
+            <input type="text"
+             class="form-control"
+             id="fromLocation"
+             name="fromInput"
+             value="{{ query }}"
+             (input)="searchFrom($event)"
+            [(ngModel)]="fromInput"
+            (focus)="setActiveInput('from')"
+            placeholder="From: Enter Starting Location"
+            >
+             <!-- From Suggestions -->
+            <div *ngIf="fromResults.length > 0" id="suggestions" class="options">
+              <ul>
+                <li style="cursor: pointer;" class="form-control" *ngFor="let result of fromResults" (click)="selectFrom(result)">
+                  <div>
+                    {{ result }}
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <!-- To Input -->
           <div class="col-md-6 mb-3">
-            <!-- <label for="toLocation" class="form-label text-white">To</label> -->
-            <input type="text" class="form-control" id="toLocation" placeholder="To: Enter destination location">
+
+              <input type="text"
+              class="form-control"
+              id="toLocation"
+              name="toInput"
+              placeholder="To: Enter destination location"
+              (input)="searchTo($event)"
+              [(ngModel)]="toInput"
+              (focus)="setActiveInput('to')"
+              >
+
+           <!-- To Suggestions -->
+             <div *ngIf="toResults.length > 0" id="suggestions" class="options">
+              <ul>
+                <li class="form-control" style="cursor: pointer;" *ngFor="let result of toResults" (click)="selectTo(result)">
+                    <div>
+                      {{ result }}
+                    </div>
+
+                </li>
+              </ul>
+            </div>
+
           </div>
+
+
         </div>
 
         <!-- Search Button -->
         <div class="text-center">
-          <button type="submit" class="btn btn-light" (click)="showSearchResult()">Search</button>
+          <button type="submit" class="btn btn-light" (click)="submit()">Search</button>
         </div>
       </form>
     </div>
 
 
-  <div class="card-body space"  *ngIf="isDivVisible">
+  <div class="card-body space">
     <div class="container mb-3" style="color: white;">
       Search Results
     </div>
+    <div class="container body">
+
+      <!-- <div *ngIf="showHistory && fromHistory.length > 0" class="history">
+        <ul>
+          <li *ngFor="let history of fromHistory" (click)="useHistory(history)">
+            {{ history }}
+          </li>
+          <li *ngFor="let history of toHistory" (click)="useHistory(history)">
+              {{ history }}
+            </li>
+        </ul>
+      </div> -->
+
+
+        <!-- Display travel details if available -->
+    <div >
+      <!-- <div *ngIf="travelDetails">
+        <h3>Travel Details:</h3>
+        <p>Expected Arrival Time: {{ travelDetails.arrivalTime }}</p>
+        <p>Expected Drop-off Time: {{ travelDetails.dropOffTime }}</p>
+        <p>Duration: {{ travelDetails.duration }}</p> -->
+
+        <!-- See route button that navigates to route page -->
+        <!-- <button (click)="navigateToRoute()">See route</button>
+      </div> -->
+
+
     <!-- First Result Block -->
-    <div class="row mb-4">
+    <div class="row mb-4 search-card" *ngIf="travelDetails">
       <div class="card bg-dark text-white p-3 mb-3">
         <div class="d-flex justify-content-between">
           <!-- Time and Duration Info -->
           <div class="d-flex flex-column">
-            <span class="fw-bold"> Expected arrival time: 00:26 - Expected drop-off time: 01:15</span>
-            <span class="text-muted small">takes 49 min <img src="../../assets/images/point.png" alt=""> arrive in 15 min</span>
+            <span class="fw-bold"> Expected arrival time: {{ travelDetails.arrivalTime }} - Expected drop-off time: {{ travelDetails.dropOffTime }}</span>
+            <span class="text-muted small">takes {{ travelDetails.duration }} <img src="../../assets/images/point.png" alt=""> arrive in 15 min</span>
           </div>
 
           <div class="d-flex flex-column align-items-end">
@@ -62,148 +126,18 @@
           </div>
           <span class="me-2">6</span>
 
-          <div class="ms-auto">
-            <span class="badge bg-secondary">18 mins</span>
+          <div class="ms-auto" (click)="navigateToRoute()">
+            <span class="badge bg-secondary">See Route</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Second Result Block -->
-    <div class="row mb-4">
-      <div class="card bg-dark text-white p-3 mb-3">
-        <div class="d-flex justify-content-between">
-          <!-- Time and Duration Info -->
-          <div class="d-flex flex-column">
-            <span class="fw-bold">Expected arrival time: 00:26 - Expected drop-off time: 01:22 </span>
-            <span class="text-muted small">takes 54 min &nbsp;&nbsp;&nbsp;&nbsp; arrive in 17 min</span>
-          </div>
 
-          <div class="d-flex flex-column align-items-end">
-            <span class="fw-bold">
-              <img src="../assets/images/greater-than.png" alt="">
-            </span>
-
-          </div>
-        </div>
-
-        <!-- Transport Info (Bus Numbers and Times) -->
-        <div class="d-flex align-items-center mt-2">
-          <span class="me-2">7</span>
-          <div class="me-2">
-            <span class="badge bg-secondary">31</span>
-          </div>
-          <span class="me-2">>11</span>
-          <div class="me-2">
-            <span class="badge bg-primary">N22</span>
-          </div>
-          <span class="me-2">>17</span>
-          <div class="ms-auto">
-            <span class="badge bg-secondary">0, 24 mins</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Third Result Block -->
-    <div class="row mb-4">
-      <div class="card bg-dark text-white p-3 mb-3">
-        <div class="d-flex justify-content-between">
-          <!-- Time and Duration Info -->
-          <div class="d-flex flex-column">
-            <span class="fw-bold"> Expected arrival time: 01:06 - Expected drop-off time: 01:45</span>
-            <span class="text-muted small">takes 39 min&nbsp;&nbsp;&nbsp;&nbsp; arrive in 54 min</span>
-          </div>
-
-          <div class="d-flex flex-column align-items-end">
-            <span class="fw-bold">
-              <img src="../assets/images/greater-than.png" alt="">
-            </span>
-
-          </div>
-        </div>
-
-        <!-- Transport Info (Bus Numbers and Times) -->
-        <div class="d-flex align-items-center mt-2">
-          <span class="me-2">R7></span>
-          <div class="me-2">
-            <span class="badge bg-secondary">N31</span>
-          </div>
-
-          <div class="me-2">
-            <span class="badge bg-primary">N16</span>
-          </div>
-          <span class="me-2">>6</span>
-          <!-- <div class="ms-auto">
-            <span class="badge bg-secondary">0, 24 mins</span>
-          </div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Fourth Result Block -->
-    <div class="row">
-      <div class="card bg-dark text-white p-3 mb-3">
-        <div class="d-flex justify-content-between">
-          <!-- Time and Duration Info -->
-          <div class="d-flex flex-column">
-            <span class="fw-bold">Expected arrival time: 01:40 - Expected drop-off time: 02:15</span>
-            <span class="text-muted small">takes 35 min</span>
-          </div>
-
-          <div class="d-flex flex-column align-items-end">
-            <span class="fw-bold">
-              <img src="../assets/images/greater-than.png" alt="">
-            </span>
-
-          </div>
-        </div>
-
-        <!-- Transport Info (Bus Numbers and Times) -->
-        <div class="d-flex align-items-center mt-2">
-          <div class="me-2">
-            <span class="badge bg-primary">N3</span>
-          </div>
-          <div class="me-2">
-            <span class="badge bg-primary">N11</span>
-          </div>
-          <span class="me-2">6</span>
-          <!-- <div class="ms-auto">
-            <span class="badge bg-secondary">18</span>
-          </div> -->
-        </div>
-      </div>
-    </div>
   </div>
-</div>
+  </div>
+  </div>
 
 
   <!-- Bottom Navigation -->
-<nav class="navbar navbar-expand navbar-custom fixed-footer">
-  <ul class="navbar-nav mx-auto w-100 justify-content-between">
-      <li class="nav-item">
-          <a class="nav-link active" href="#">
-              <img src="../assets/images/home-nav.png" alt=""><br>
-              Home
-          </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="search">
-            <img src="../assets/images/heart.png" alt=""><br>
-              Search
-          </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="../assets/images/hide.png" alt=""><br>
-              Buses
-          </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="../assets/images/share.png" alt=""><br>
-              Routes
-          </a>
-      </li>
-  </ul>
-</nav>
+   <app-footer></app-footer>

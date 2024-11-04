@@ -1,0 +1,37 @@
+
+.body {
+  background-color: #083d08;
+  height: 100vh;
+  color: white;
+}
+.page-title {
+  padding: 15px 0px;
+}
+.search-bar {
+  background-color: #176017;
+  opacity: 1;
+  color: white;
+  border: none;
+}
+.route-number {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.list-group-item {
+  background-color: #333;
+  color: white;
+  border: none;
+}
+.status-icon {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.green { color: white; background-color: #176017; border-radius: 50px; }
+.orange { color: orange; }
+.grey { color: grey; }

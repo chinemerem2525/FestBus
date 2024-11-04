@@ -2,6 +2,18 @@
   font-size: 18px;
 }
 
+.search-card:hover {
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.options {
+  height: 80px;
+  overflow: auto;
+}
+
 .time {
   font-weight: bold;
   font-size: 16px;
@@ -21,6 +33,10 @@
   border-radius: 1px;
 }
 
+.space {
+  background-color: black;
+}
+
 .text-muted {
   color: rgba(255, 255, 255, 0.6) !important;
 }
@@ -38,7 +54,8 @@ i.bi-chevron-right {
 
 /* Bottom Nav */
 .space {
-  margin-bottom: 78px;
+  background-color: #111;
+  height: 90vh;
 }
 .nav-link {
   text-align: center;
@@ -57,5 +74,52 @@ i.bi-chevron-right {
   bottom: 0;
   width: 100%;
   border-top: 1px solid #444;
+}
+
+body {
+  background-color: #111;
+}
+
+
+/* Modal */
+
+.modal-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+.modal-body {
+  padding: 0;
+}
+.search-bar {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+.search-bar input {
+  width: calc(100% - 40px);
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+.recent-searches {
+  background-color: #111;
+  color: #fff;
+  padding: 15px;
+}
+.recent-search-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
+}
+.recent-search-item:last-child {
+  border-bottom: none;
+}
+.recent-search-item span {
+  color: #aaa;
 }
 

@@ -1,7 +1,13 @@
+<app-loader></app-loader>
 <div>
   <div class="basic-1">
+<div>
+  <h2 class="title">FestBus</h2>
+</div>
+    <div style="margin-bottom: 30px;">
+      <app-map></app-map>
+    </div>
 
-    <div id="map" style="height: 300px; margin-bottom: 30px;"></div>
 
     <div class="container search">
       <div class="search-bar">
@@ -29,7 +35,7 @@
         Current Bus Stop
       </div>
     </div>
-    <div class="bus-stop-card">
+    <div class="bus-stop-card container">
       <div class="container">
         <div class="stop-name location-button"><input class="form-check-input" type="radio" name="options" id="option3">Home Street</div>
       <div class="bus-info">
@@ -80,7 +86,7 @@
   </div>
   <div class="nearby">
     <!-- First Stop Card -->
-      <div class="card-stop">
+      <div class="card-stop container">
         <div class="container">
             <div class="stop-info">
                 <div>
@@ -88,7 +94,7 @@
                         <i class="fas fa-arrow-circle-left"></i>
                     </div>
                     <div>
-                        <h5 class="font-weight-bold">1st Avenue</h5>
+                        <h5>1st Avenue</h5>
                     </div>
                 </div>
             </div>
@@ -109,7 +115,7 @@
       </div>
 
       <!-- Second Stop Card -->
-      <div class="card-stop">
+      <div class="card-stop container">
         <div class="container">
               <div class="stop-info">
                   <div>
@@ -146,7 +152,7 @@
       </div>
 
       <!-- Third Stop Card -->
-      <div class="card-stop">
+      <div class="card-stop container">
         <div class="container">
             <div class="stop-info">
                 <div>
@@ -154,7 +160,7 @@
                         <i class="fas fa-arrow-circle-left"></i>
                     </div>
                     <div>
-                        <h5 class="font-weight-bold">3rd Avenue</h5>
+                        <h5>3rd Avenue</h5>
                     </div>
                 </div>
             </div>
@@ -175,7 +181,7 @@
       </div>
 
       <!-- Fourt Stop Card -->
-      <div class="card-stop">
+      <div class="card-stop container">
         <div class="container">
               <div class="stop-info">
                   <div>
@@ -183,7 +189,7 @@
                           <i class="fas fa-arrow-circle-left"></i>
                       </div>
                       <div>
-                          <h5 class="font-weight-bold">6th Avenue</h5>
+                          <h5>6th Avenue</h5>
                       </div>
                   </div>
               </div>
@@ -212,7 +218,7 @@
       </div>
 
       <!-- fifth Stop Card -->
-      <div class="card-stop space">
+      <div class="card-stop container space">
         <div class="container">
             <div class="stop-info">
                 <div>
@@ -220,7 +226,7 @@
                         <i class="fas fa-arrow-circle-left"></i>
                     </div>
                     <div>
-                        <h5 class="font-weight-bold">7th Avenue</h5>
+                        <h5>7th Avenue</h5>
                     </div>
                 </div>
             </div>
@@ -242,36 +248,7 @@
 
   </div>
 
-  <div>
-      <!-- Bottom Navigation -->
-    <nav class="navbar navbar-expand navbar-custom">
-      <ul class="navbar-nav mx-auto w-100 justify-content-between">
-          <li class="nav-item">
-              <a class="nav-link active" href="#">
-                  <img src="../assets/images/home-nav.png" alt=""><br>
-                  Home
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="search">
-                <img src="../assets/images/heart.png" alt=""><br>
-                  Search
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">
-                <img src="../assets/images/hide.png" alt=""><br>
-                  Buses
-              </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">
-                <img src="../assets/images/share.png" alt=""><br>
-                  Routes
-              </a>
-          </li>
-      </ul>
-    </nav>
-  </div>
+  <app-footer></app-footer>
+
 
 </div>

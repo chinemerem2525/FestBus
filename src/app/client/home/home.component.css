@@ -1,3 +1,13 @@
+.title {
+  margin-left: 30px;
+
+}
+
+.map {
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .search-bar {
   display: flex;
@@ -35,17 +45,29 @@
 
 /* Current Bus Stop */
 .bus-stop{
-  background-color: #2b2b2b ;
+  background-color: #222 ;
   color: #ccc;
+  height: 170px;
 }
 
 .bus-stop-card {
-  background-color: #333;
+  background-color: #444;
   color: #fff;
   padding: 10px;
   border-radius: 3px;
   width: 100%;
 }
+
+.bus-stop-card:hover {
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .bus-stop-card .stop-info {
   font-size: 1.2rem;
   margin-bottom: 5px;
@@ -131,7 +153,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: green;
+  background-color: #083d08;
 }
 .btn-custom {
   display: flex;
@@ -174,11 +196,20 @@
 /* Nearby Stops */
 
 .card-stop {
-  background-color: #333;
+  background-color: #444;
+  color: white;
+  padding: 5px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+.card-stop:hover {
+  background-color: #222;
   color: #fff;
   padding: 10px;
-  border-radius: 1px;
-  margin-bottom: 15px;
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .card-stop .stop-info {
   display: flex;
@@ -250,7 +281,7 @@
 }
 .nearby
 {
-  background-color: rgb(75, 198, 75);
+  background-color: #083d08;
   margin-bottom: 50px;
 }
 
