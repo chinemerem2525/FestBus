@@ -64,9 +64,9 @@
   </div>
 
   <!-- Report and Contact -->
-  <div>
-    <div class="button-container">
-      <button class="btn btn-custom btn-report col-4">
+  <div style="background-color: #083d08;">
+    <div class="button-container container" style="padding: 20px 50px;">
+      <button class="btn btn-custom btn-report col-4" (click)="navigateToReport()">
           <img class="ticket" src="../assets/images/tickets.png" alt="">
           Report
       </button>
@@ -85,8 +85,9 @@
     </div>
   </div>
   <div class="nearby">
-    <!-- First Stop Card -->
-      <div class="card-stop container">
+     <div class="container">
+       <!-- First Stop Card -->
+       <div class="card-stop container" (click)="navigateTo1stAvenue()">
         <div class="container">
             <div class="stop-info">
                 <div>
@@ -107,7 +108,7 @@
                 <span class="bus-line">29</span>
                 <p>Elm Row</p>
                 <i class="fas fa-heart ml-auto heart-icon"></i>
-                <div class="stop-time">
+                <div class="">
                   18 min
               </div>
             </div>
@@ -140,14 +141,6 @@
                       16 min
                   </div>
               </div>
-              <div class="d-flex align-items-center">
-                  <span class="bus-line yellow">3</span>
-                  <p>1st Avenue</p>
-                  <i class="fas fa-heart ml-auto heart-icon"></i>
-                  <div class="stop-time">
-                    40 min
-                </div>
-              </div>
         </div>
       </div>
 
@@ -173,7 +166,7 @@
                 <span class="bus-line">29</span>
                 <p>23 Road</p>
                 <i class="fas fa-heart ml-auto heart-icon"></i>
-                <div class="stop-time">
+                <div class="">
                   18 min
               </div>
             </div>
@@ -199,18 +192,10 @@
               </div>
               <p class="distance"><small>3 min walk . towards </small><br><span class="distance-location"> Alakija</span></p>
               <div class="d-flex align-items-center">
-                <span class="bus-line n3">N3</span>
-                <p>Festac</p>
-                <i class="fas fa-heart ml-auto heart-icon"></i>
-                <div class="">
-                      16 min
-                  </div>
-              </div>
-              <div class="d-flex align-items-center">
                   <span class="bus-line yellow">3</span>
                   <p>2nd Avenue</p>
                   <i class="fas fa-heart ml-auto heart-icon"></i>
-                  <div class="stop-time">
+                  <div class="">
                     40 min
                 </div>
               </div>
@@ -239,12 +224,13 @@
                 <span class="bus-line">29</span>
                 <p>Total Fuel Station</p>
                 <i class="fas fa-heart ml-auto heart-icon"></i>
-                <div class="stop-time">
+                <div class="">
                   18 min
               </div>
             </div>
         </div>
       </div>
+     </div>
 
   </div>
 

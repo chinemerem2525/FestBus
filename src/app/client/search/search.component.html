@@ -1,70 +1,149 @@
 
 <div class="card">
-
-    <div class="card p-4" style="background-color: #083d08;">
-      <h5 class="text-white mb-3">Search for Routes</h5>
-      <form>
-        <div class="row">
-          <!-- From Input -->
-          <div class="col-md-6 mb-3">
-            <input type="text"
-             class="form-control"
-             id="fromLocation"
-             name="fromInput"
-             value="{{ query }}"
-             (input)="searchFrom($event)"
+<div class="">
+  <div class="card p-4" style="background-color: #083d08;">
+    <h5 class="text-white mb-3">Search for Routes</h5>
+    <form>
+      <div class="row align-items-center search-bar">
+        <!-- From Input -->
+        <div class="col-md-5 p-0">
+          <input type="text"
+           class="form-control from-input form"
+            id="fromLocation"
+            name="fromInput"
             [(ngModel)]="fromInput"
-            (focus)="setActiveInput('from')"
-            placeholder="From: Enter Starting Location"
+            placeholder="From"
+            (input)="searchFrom($event)"
+            (focus)="openModal('from')"
             >
-             <!-- From Suggestions -->
-            <div *ngIf="fromResults.length > 0" id="suggestions" class="options">
-              <ul>
-                <li style="cursor: pointer;" class="form-control" *ngFor="let result of fromResults" (click)="selectFrom(result)">
-                  <div>
-                    {{ result }}
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+        </div>
 
-          <!-- To Input -->
-          <div class="col-md-6 mb-3">
-
-              <input type="text"
-              class="form-control"
-              id="toLocation"
-              name="toInput"
-              placeholder="To: Enter destination location"
-              (input)="searchTo($event)"
-              [(ngModel)]="toInput"
-              (focus)="setActiveInput('to')"
-              >
-
-           <!-- To Suggestions -->
-             <div *ngIf="toResults.length > 0" id="suggestions" class="options">
-              <ul>
-                <li class="form-control" style="cursor: pointer;" *ngFor="let result of toResults" (click)="selectTo(result)">
-                    <div>
-                      {{ result }}
-                    </div>
-
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
-
+        <!-- To Input -->
+        <div class="col-md-5 p-0">
+          <input type="text"
+           class="form-control"
+           id="toLocation"
+           name="toInput"
+           placeholder="To"
+            [(ngModel)]="toInput"
+            (input)="searchTo($event)"
+            (focus)="openModal('to')"
+            >
         </div>
 
         <!-- Search Button -->
-        <div class="text-center">
-          <button type="submit" class="btn btn-light" (click)="submit()">Search</button>
+        <div class="col-md-1 p-0">
+          <button type="submit" class="btn search-btn" (click)="submit()">
+            <img src="../../../assets/images/search.png" alt="">
+          </button>
         </div>
-      </form>
-    </div>
+      </div>
+
+      <!-- Modal for Suggestions -->
+      <div class="container">
+        <div class="suggestions-modal" *ngIf="modalVisible">
+          <div class="modal-header">
+             <!-- From Input -->
+
+             <!-- Invisible dummy input -->
+             <input style="display: none;"
+             name="emptyInput"
+             [(ngModel)]="emptyInput">
+             <!-- Invisible dummy input ends -->
+
+            <input #modalInput
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="selectedInput === 'from' ? fromInput : toInput"
+                  (input)="selectedInput === 'from' ? searchFrom($event) : searchTo($event)"
+                  placeholder="{{ selectedInput === 'from' ? 'From' : 'To' }}">
+            <button (click)="closeModal()">Cancel</button>
+          </div>
+
+          <div class="modal-content" (click)="closeModal()">
+            <small>Suggestions</small>
+            <!-- Display suggestions for "from" input -->
+            <ul *ngIf="selectedInput === 'from' && fromResults.length > 0">
+              <li *ngFor="let result of fromResults" (click)="selectFrom(result)">
+                {{ result }}
+              </li>
+            </ul>
+
+            <!-- Display suggestions for "to" input -->
+            <ul *ngIf="selectedInput === 'to' && toResults.length > 0">
+              <li *ngFor="let result of toResults" (click)="selectTo(result)">
+                {{ result }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="row">
+        <!-- From Input -->
+        <!-- <div class="col-md-4 mb-3">
+          <input type="text"
+           class="form-control form"
+           id="fromLocation"
+           name="fromInput"
+           value="{{ query }}"
+           (input)="searchFrom($event)"
+          [(ngModel)]="fromInput"
+          (focus)="setActiveInput('from')"
+          placeholder="From: Enter Starting Location"
+          > -->
+
+           <!-- From Suggestions -->
+          <!-- <div *ngIf="fromResults.length > 0" id="suggestions" class="options">
+            <ul>
+              <li style="cursor: pointer;" class="form-control" *ngFor="let result of fromResults" (click)="selectFrom(result)">
+                <div>
+                  {{ result }}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+
+        <!-- To Input -->
+        <!-- <div class="col-md-5 mb-3">
+
+            <input type="text"
+            class="form-control"
+            id="toLocation"
+            name="toInput"
+            placeholder="To: Enter destination location"
+            (input)="searchTo($event)"
+            [(ngModel)]="toInput"
+            (focus)="setActiveInput('to')"
+            > -->
+
+         <!-- To Suggestions -->
+           <!-- <div *ngIf="toResults.length > 0" id="suggestions" class="options">
+            <ul>
+              <li class="form-control" style="cursor: pointer;" *ngFor="let result of toResults" (click)="selectTo(result)">
+                  <div>
+                    {{ result }}
+                  </div>
+
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-light" (click)="submit()">Search</button>
+        </div> -->
+
+      </div>
+    </form>
+  </div>
+
+</div>
 
 
   <div class="card-body space">

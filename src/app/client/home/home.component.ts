@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BusStopService } from 'src/app/shared/services/bus/bus-stop.service';
+import { LoaderService } from 'src/app/shared/services/loader/loader.service';
 
 // declaring L to be accessable as a global javascript variable
 declare const L: any;
@@ -13,7 +14,7 @@ declare const L: any;
 export class HomeComponent implements OnInit {
   searchTerm: string = '';
 
-  constructor(private router: Router, private _bs: BusStopService) { }
+  constructor(private router: Router, private _bs: BusStopService, private ls: LoaderService) { }
 
   ngOnInit(): void {
     if (!navigator.geolocation){
@@ -63,7 +64,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/search', { query: this.searchTerm }]);
     }
   }
-  
+
   watchPosition() {
     let desLat = 0;
     let desLon = 0;
@@ -84,9 +85,19 @@ export class HomeComponent implements OnInit {
   );
   }
 
+  navigateToReport() {
+    this.ls.showLoader();
 
+      this.router.navigate(['/report'])
+  }
 
+  navigateTo1stAvenue() {
+    this.ls.showLoader();
 
+      this.router.navigate(['/route']);
+      
+
+  }
 
 
 }

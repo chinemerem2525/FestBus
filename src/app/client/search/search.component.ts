@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, OnChanges, SimpleChanges  } from '@angular/core';
 import { BusStopService } from 'src/app/shared/services/bus/bus-stop.service';
 import { Router, ActivatedRoute } from '@angular/router'; // Import Router and ActivatedRoute services
 import { NotificationService } from 'src/app/shared/services/notification/notification.service';
@@ -9,10 +9,14 @@ import { LoaderService } from 'src/app/shared/services/loader/loader.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, AfterViewInit, OnChanges {
+
+  @ViewChild('modalInput') modalInput!: ElementRef<HTMLInputElement>;
+
   query: string = '';
   fromInput: string = '';
   toInput: string = '';
+  emptyInput: string = '';
   fromResults: string[] = [];
   toResults: string[] = [];
   travelDetails: { arrivalTime: string; dropOffTime: string; duration: string } | null = null;
@@ -20,6 +24,9 @@ export class SearchComponent implements OnInit {
   toHistory: string[] = [];
   activeInput: 'from' | 'to' = 'from'; // Track which input is active
   showHistory: boolean = true; // Control visibility of history
+
+  modalVisible: boolean = false;
+  selectedInput: string = '';
 
   constructor(
     private busStopService: BusStopService,
@@ -55,6 +62,22 @@ export class SearchComponent implements OnInit {
     this.showHistory = this.fromHistory.length > 0 || this.toHistory.length > 0;
   }
 
+  ngAfterViewInit(): void {
+    // After the view is initialized, set focus if the modal is already visible
+    if (this.modalVisible) {
+      this.focusModalInput();
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.fromInput || changes.toInput) {
+      // Check if both inputs have values
+      if (this.fromInput && this.toInput) {
+        console.log('search');
+        this.submit(); // Trigger submit when both inputs have values
+      }
+    }
+  }
   searchFrom(event: any) {
     const query = event.target.value;
     this.fromResults = this.busStopService.searchBusStops(query);
@@ -175,5 +198,22 @@ export class SearchComponent implements OnInit {
         },
       });
     }
+  }
+
+  openModal(input: string) {
+    this.modalVisible = true;
+    this.selectedInput = input;
+    this.focusModalInput(); // Focus the input when the modal opens
+  }
+
+  closeModal() {
+    this.modalVisible = false;
+    this.selectedInput = '';
+  }
+
+  private focusModalInput() {
+    setTimeout(() => {
+      this.modalInput?.nativeElement.focus();
+    }, 0);
   }
 }
