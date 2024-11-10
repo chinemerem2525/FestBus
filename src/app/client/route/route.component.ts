@@ -20,6 +20,11 @@ export class RouteComponent implements OnInit {
   // location$!: Observable<RouteMap[]>;
 
 
+  stops: string[] = [];
+  fromLocation: any; // example start location
+  toLocation: any;   // example end location
+  isShortRoute = true; // Toggle for short or long route
+
   from: string = '';
   to: string = '';
   arrivalTime: string = '';
@@ -33,6 +38,8 @@ export class RouteComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.getStops();
+
     // Subscribe to queryParams to get the data
     this.route.queryParams.subscribe(params => {
       this.from = params['from'];
@@ -40,6 +47,10 @@ export class RouteComponent implements OnInit {
       this.arrivalTime = params['arrivalTime'];
       this.dropOffTime = params['dropOffTime'];
       this.duration = params['duration'];
+
+      // Update `fromLocation` and `toLocation` based on query parameters
+    this.fromLocation = this.from ; // Fallback if 'from' is not provided
+    this.toLocation = this.to; // Fallback if 'to' is not provided
 
       if (this.to) {
         this.busesToDestination = this.bs.getBusesByDestination(this.to);
@@ -67,5 +78,35 @@ export class RouteComponent implements OnInit {
 
     // this.location$ = this.rm.getLocation()
   }
+
+  getStops(): void {
+    this.rm.getStopsBetweenLocations(this.fromLocation, this.toLocation, this.isShortRoute)
+      .subscribe((stops: string[]) => {
+        this.stops = stops;
+      });
+  }
+getLongRoute() {
+  this.isShortRoute = false;
+  this.rm.getStopsBetweenLocations(this.from, this.to, false).subscribe(
+    (stops: string[]) => {
+      this.stops = stops;
+    },
+    (error) => {
+      console.error("Error fetching long route stops:", error);
+    }
+  );
+}
+
+getShortRoute() {
+  this.isShortRoute = true;
+  this.rm.getStopsBetweenLocations(this.from, this.to, true).subscribe(
+    (stops: string[]) => {
+      this.stops = stops;
+    },
+    (error) => {
+      console.error("Error fetching short route stops:", error);
+    }
+  );
+}
 
 }
