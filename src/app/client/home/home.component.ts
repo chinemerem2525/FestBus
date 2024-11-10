@@ -91,13 +91,8 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/report'])
   }
 
-  navigateTo1stAvenue() {
+  navigateToAvenueLoader() {
     this.ls.showLoader();
-
-      this.router.navigate(['/route']);
-      
-
+    
   }
-
-
 }

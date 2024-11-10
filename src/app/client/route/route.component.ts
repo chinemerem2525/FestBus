@@ -22,6 +22,8 @@ export class RouteComponent implements OnInit {
   arrivalTime: string = '';
   dropOffTime: string = '';
   duration: string = '';
+  hasQueryParams: boolean = false;
+  hasNoQueryParams: boolean = true;
 
   constructor(private route: ActivatedRoute, private routeDataService: RouteDataService, private rm: RouteMapService) { }
 
@@ -36,7 +38,12 @@ export class RouteComponent implements OnInit {
       this.dropOffTime = params['dropOffTime'];
       this.duration = params['duration'];
 
-      console.log('Params: ',params);
+        // Check if there are any query parameters
+        this.hasQueryParams = !!(this.from || this.to || this.arrivalTime || this.dropOffTime || this.duration);
+
+        console.log('Params:', params);
+
+      // console.log('Params: ',params);
 
     });
 

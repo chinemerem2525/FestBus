@@ -17,27 +17,37 @@ export class FooterComponent implements OnInit {
 
   navigateToRoute() {
     this.loaderService.showLoader();
-    this.router.navigate(['/route'])
+    this.router.navigate(['/route']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
-  navigateToSearch() {
+  navigateToSearch(bookmarkId: string) {
     this.loaderService.showLoader();
-    this.router.navigate(['/search'])
+    this.router.navigate(['/search']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   navigateToBuses() {
     this.loaderService.showLoader();
-    this.router.navigate(['/buses'])
+    this.router.navigate(['/buses']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   navigateToHome() {
     this.loaderService.showLoader();
-    this.router.navigate(['/'])
+    this.router.navigate(['/']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   navigateToReport() {
     this.loaderService.showLoader();
-    this.router.navigate(['/report'])
+    this.router.navigate(['/report']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
 

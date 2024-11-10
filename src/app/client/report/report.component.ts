@@ -51,7 +51,7 @@ export class ReportComponent implements OnInit {
       //  this.reportForm.reset();
     } else {
       this.showError = false;
-      this.ns.showNotification('Sent', 'success');
+      this.ns.showNotification('Report Sent', 'success');
       this.reportForm.reset();
     }
 

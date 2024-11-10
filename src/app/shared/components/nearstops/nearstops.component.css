@@ -1,0 +1,101 @@
+
+/* Nearby Stops */
+
+.card-stop {
+  background-color: #444;
+  color: white;
+  padding: 5px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+.card-stop:hover {
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+
+}
+.card-stop .stop-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-stop .stop-info div {
+  display: flex;
+  align-items: center;
+}
+.card-stop .stop-icon {
+  background-color: #dc3545;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+.bus-line {
+  background-color: #b080d1;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 1px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.bus-line.n3 {
+  background-color: #002366;
+}
+.bus-line.yellow {
+  background-color: #ffc107;
+}
+.stop-time {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.heart-icon {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.distance
+ {
+  margin-left: 60px;
+ }
+
+ .distance-location {
+  font-size: 14px;
+  margin-top: -5px;
+ }
+
+ .love {
+  float: right;
+ }
+
+.flex {
+  justify-content: right;
+  float: right;
+  margin-right: 10px;
+}
+
+.marg {
+  margin-bottom: 15px;
+  background-color: #083d08;
+}
+
+.near {
+  background-color: #2b2b2b;
+  color: rgb(176, 176, 176);
+  padding: 20px;
+  border-radius: 0px;
+}
+.nearby
+{
+  background-color: #083d08;
+  margin-bottom: 50px;
+}

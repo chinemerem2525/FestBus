@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  overscroll-behavior: none;
+}
 
 /* footer */
 .division {
-  margin-top: 85px;
+  margin-bottom: 78px;
 }

@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouteMapComponent } from './components/route-map/route-map.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { NearstopsComponent } from './components/nearstops/nearstops.component';
 
 
 
@@ -16,6 +17,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     RouteMapComponent,
     NotificationComponent,
     LoaderComponent,
+    NearstopsComponent,
   ],
   imports: [
     CommonModule
@@ -26,7 +28,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     RouteMapComponent,
     NotificationComponent,
     LoaderComponent,
-    MapComponent
+    MapComponent,
+     NearstopsComponent
 
   ]
 })

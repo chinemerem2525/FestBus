@@ -1,17 +1,16 @@
 <app-loader></app-loader>
-<div>
-  <div class="basic-1">
-<div>
-  <h2 class="title">FestBus</h2>
-</div>
-    <div style="margin-bottom: 30px;">
-      <app-map></app-map>
-    </div>
+<div class="body">
+      <div>
+        <h2 class="title">FestBus</h2>
+      </div>
+      <div style="margin-bottom: 30px;">
+        <app-map></app-map>
+      </div>
 
 
     <div class="container search">
-      <div class="search-bar">
-        <div class="container">
+      <div class="container search-bar">
+        <div class="">
           <input
             type="text"
             placeholder="Search..."
@@ -21,12 +20,10 @@
             aria-label="Search"
           />
         </div>
-          <!-- <i class="bi bi-search search-icon"></i>
-          <input type="text" class="form-control" placeholder="I want to go to...">
-          <i class="bi bi-arrow-right arrow-icon"></i> -->
       </div>
-  </div>
-  </div><br>
+    </div>
+
+<br>
 
   <!-- Current Bus Stop -->
   <div class="bus-stop">
@@ -66,20 +63,21 @@
   <!-- Report and Contact -->
   <div style="background-color: #083d08;">
     <div class="button-container container" style="padding: 20px 50px;">
-      <button class="btn btn-custom btn-report col-4" (click)="navigateToReport()">
+      <button class="btn btn-custom btn-report " (click)="navigateToReport()">
           <img class="ticket" src="../assets/images/tickets.png" alt="">
           Report
       </button>
-      <button class="btn btn-custom btn-contact col-lg-7">
+      <button class="btn btn-custom btn-contact">
         <img class="house" src="../assets/images/home.png" alt="">
           Contact Us
-          <span class="arrow-icon">&gt;</span>
+
       </button>
     </div>
   </div>
 
   <!-- Nearby Stops -->
-  <div class="near">
+   <div class="marg">
+   <div class="near marg">
     <div class="container">
       Nearby Stops
     </div>
@@ -87,7 +85,7 @@
   <div class="nearby">
      <div class="container">
        <!-- First Stop Card -->
-       <div class="card-stop container" (click)="navigateTo1stAvenue()">
+      <div class="card-stop container" (click)="navigateToAvenueLoader()" [routerLink]="['/route']" [queryParams]="{ from: '1st Avenue', to: '2nd Avenue' }">
         <div class="container">
             <div class="stop-info">
                 <div>
@@ -105,7 +103,7 @@
             </div>
             <p class="distance"><small>30 min walk . towards</small><br><span class="distance-location"> Alakija</span></p>
             <div class="d-flex align-items-center">
-                <span class="bus-line">29</span>
+                <span class="bus-line"><img src="../../../assets/images/bus.png" alt="">&nbsp;29</span>
                 <p>Elm Row</p>
                 <i class="fas fa-heart ml-auto heart-icon"></i>
                 <div class="">
@@ -116,7 +114,7 @@
       </div>
 
       <!-- Second Stop Card -->
-      <div class="card-stop container">
+      <div class="card-stop container" (click)="navigateToAvenueLoader()" [routerLink]="['/route']" [queryParams]="{ from: '2nd Avenue', to: '3rd Avenue' }">
         <div class="container">
               <div class="stop-info">
                   <div>
@@ -134,7 +132,7 @@
               </div>
               <p class="distance"><small>3 min walk . towards </small><br><span class="distance-location"> AA close</span></p>
               <div class="d-flex align-items-center">
-                <span class="bus-line n3">N3</span>
+                <span class="bus-line n3"><img src="../../../assets/images/bus.png" alt="">&nbsp;3</span>
                 <p>24 Road</p>
                 <i class="fas fa-heart ml-auto heart-icon"></i>
                 <div class="">
@@ -145,7 +143,7 @@
       </div>
 
       <!-- Third Stop Card -->
-      <div class="card-stop container">
+      <div class="card-stop container" (click)="navigateToAvenueLoader()" [routerLink]="['/route']" [queryParams]="{ from: '3rd Avenue', to: '4th Avenue' }">
         <div class="container">
             <div class="stop-info">
                 <div>
@@ -163,7 +161,7 @@
             </div>
             <p class="distance"><small>1 min walk . towards</small><br><span class="distance-location">2nd Avenue</span></p>
             <div class="d-flex align-items-center">
-                <span class="bus-line">29</span>
+                <span class="bus-line"><img src="../../../assets/images/bus.png" alt="">&nbsp;29</span>
                 <p>23 Road</p>
                 <i class="fas fa-heart ml-auto heart-icon"></i>
                 <div class="">
@@ -174,7 +172,7 @@
       </div>
 
       <!-- Fourt Stop Card -->
-      <div class="card-stop container">
+      <div class="card-stop container" (click)="navigateToAvenueLoader()"  [routerLink]="['/route']" [queryParams]="{ from: '6th Avenue', to: '7th Avenue' }">
         <div class="container">
               <div class="stop-info">
                   <div>
@@ -192,7 +190,7 @@
               </div>
               <p class="distance"><small>3 min walk . towards </small><br><span class="distance-location"> Alakija</span></p>
               <div class="d-flex align-items-center">
-                  <span class="bus-line yellow">3</span>
+                  <span class="bus-line yellow"><img src="../../../assets/images/bus.png" alt="">&nbsp;3</span>
                   <p>2nd Avenue</p>
                   <i class="fas fa-heart ml-auto heart-icon"></i>
                   <div class="">
@@ -203,7 +201,7 @@
       </div>
 
       <!-- fifth Stop Card -->
-      <div class="card-stop container space">
+      <div class="card-stop container space" (click)="navigateToAvenueLoader()" [routerLink]="['/route']" [queryParams]="{ from: '7th Avenue', to: '3rd Avenue' }">
         <div class="container">
             <div class="stop-info">
                 <div>
@@ -221,7 +219,7 @@
             </div>
             <p class="distance"><small>1 min walk . towards</small><br><span class="distance-location"> Alakija</span></p>
             <div class="d-flex align-items-center">
-                <span class="bus-line">29</span>
+                <span class="bus-line"><img src="../../../assets/images/bus.png" alt="">&nbsp;29</span>
                 <p>Total Fuel Station</p>
                 <i class="fas fa-heart ml-auto heart-icon"></i>
                 <div class="">
@@ -232,6 +230,7 @@
       </div>
      </div>
 
+  </div>
   </div>
 
   <app-footer></app-footer>

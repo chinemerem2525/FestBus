@@ -1,5 +1,6 @@
 .card-header {
   font-size: 18px;
+  background-color: #176017;
 }
 
 .search-card:hover {
@@ -28,14 +29,14 @@
 }
 
 .card {
-  background-color: #111; /* Dark background similar to the screenshot */
+  background-color: #083d08; /* Dark background similar to the screenshot */
   border: none;
   border-radius: 1px;
 }
-
-.space {
-  background-color: black;
+.card-body {
+  border-radius: 20px;
 }
+
 
 .text-muted {
   color: rgba(255, 255, 255, 0.6) !important;
@@ -47,6 +48,12 @@
   background-color: #b080d1;
 }
 
+.form {
+  border: 1px solid #122e12;
+  border-radius: 10px;
+  margin-right: 4px;
+}
+
 i.bi-chevron-right {
   font-size: 20px;
   color: white;
@@ -55,8 +62,10 @@ i.bi-chevron-right {
 /* Bottom Nav */
 .space {
   background-color: #111;
-  height: 90vh;
+  padding-bottom: 1000px;
 }
+
+
 .nav-link {
   text-align: center;
   color: #ccc;
@@ -77,7 +86,7 @@ i.bi-chevron-right {
 }
 
 body {
-  background-color: #111;
+  background-color: #176017;
 }
 
 
