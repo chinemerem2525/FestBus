@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { BusesService } from 'src/app/shared/services/bus/buses.service';
 import { RouteMapService } from 'src/app/shared/services/map/route-map.service';
 import { RouteDataService } from 'src/app/shared/services/route-data/route-data.service';
 
@@ -11,6 +12,8 @@ import { RouteDataService } from 'src/app/shared/services/route-data/route-data.
   styleUrls: ['./route.component.css']
 })
 export class RouteComponent implements OnInit {
+
+  busesToDestination: any[] = []; // Array to store buses allocated to 'to' location
 
   routeInstructions: string[] = [];
   journeyDuration: string = '';
@@ -25,7 +28,7 @@ export class RouteComponent implements OnInit {
   hasQueryParams: boolean = false;
   hasNoQueryParams: boolean = true;
 
-  constructor(private route: ActivatedRoute, private routeDataService: RouteDataService, private rm: RouteMapService) { }
+  constructor(private route: ActivatedRoute, private routeDataService: RouteDataService, private rm: RouteMapService, private bs: BusesService) { }
 
 
   ngOnInit(): void {
@@ -37,6 +40,10 @@ export class RouteComponent implements OnInit {
       this.arrivalTime = params['arrivalTime'];
       this.dropOffTime = params['dropOffTime'];
       this.duration = params['duration'];
+
+      if (this.to) {
+        this.busesToDestination = this.bs.getBusesByDestination(this.to);
+      }
 
         // Check if there are any query parameters
         this.hasQueryParams = !!(this.from || this.to || this.arrivalTime || this.dropOffTime || this.duration);

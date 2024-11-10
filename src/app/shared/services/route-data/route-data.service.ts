@@ -21,4 +21,7 @@ export class RouteDataService {
   setJourneyDuration(duration: string) {
     this.journeyDurationSource.next(duration);
   }
+
+
+
 }

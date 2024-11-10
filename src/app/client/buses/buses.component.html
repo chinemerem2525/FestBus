@@ -17,16 +17,18 @@
 
   <h5 class="mb-3">Nearby buses</h5>
 
-
-  <ul class="list-group" *ngIf="searchResults.length > 0" id="suggestions">
-    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let bus of searchResults">
-      <div class="d-flex align-items-center">
-        <div class="route-number" style="background-color: #6fa9e6;">{{ bus.busNumber }}</div>
-        <div> Bus for {{ bus.name }} and enviroms</div>
+<ul class="list-group" *ngIf="searchResults.length > 0" id="suggestions">
+  <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let bus of searchResults">
+    <div class="d-flex align-items-center">
+      <!-- Loop through each bus number in the bus.busNumber array -->
+      <div *ngFor="let number of bus.busNumber" class="route-number" style="background-color: #6fa9e6; margin-right: 5px;">
+        {{ number }}
       </div>
-      <span class="status-icon green">✔</span>
-    </li>
-  </ul>
+      <div> Bus for {{ bus.name }} and environs</div>
+    </div>
+    <span class="status-icon green">✔</span>
+  </li>
+</ul>
 
   <p class="text-muted">All buses.</p>
 
